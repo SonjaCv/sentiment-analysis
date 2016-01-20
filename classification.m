@@ -14,13 +14,13 @@ Theta2 = loadTheta2();
 while ~isempty(review_contents)
 
    
-    [str, review_contents] = ...
-       strtok(review_contents, ...
+    [str, review_contents] = 
+       strtok(review_contents, 
               [ char(10) char(13)]);  
 			  
   
-    word_indices  = processReview(str);
-	features      = reviewFeatures(word_indices);
+    word_indices = processReview(str);
+	features = reviewFeatures(word_indices);
 	
 	pred = predict(Theta1, Theta2, features');
 	
@@ -28,44 +28,44 @@ while ~isempty(review_contents)
 	polarity = '';
 
 if pred == 1,
-aspect = 'Battery' ;
-polarity = 'Negative';
+	aspect = 'Battery' ;
+	polarity = 'Negative';
 end;
- if pred == 2,
-aspect = 'Battery' ;
-polarity ='Positive';
+if pred == 2,
+	aspect = 'Battery' ;
+	polarity ='Positive';
 end;
- if pred == 3,
-aspect = 'Memory';
- polarity = 'Negative';
+if pred == 3,
+	aspect = 'Memory';
+ 	polarity = 'Negative';
 end;
- if pred == 4,
-aspect = 'Memory';
- polarity = 'Positive';
+if pred == 4,
+	aspect = 'Memory';
+ 	polarity = 'Positive';
 end;
 if pred == 5,
-aspect = 'Performance';
- polarity = 'Negative';
+	aspect = 'Performance';
+ 	polarity = 'Negative';
 end;
 if pred == 6,
-aspect = 'Performance';
- polarity ='Positive';
+	aspect = 'Performance';
+ 	polarity ='Positive';
 end;
 if pred == 7,
-aspect = 'Screen';
-polarity ='Negative';
+	aspect = 'Screen';
+	polarity ='Negative';
 end;
 if pred == 8,
-aspect = 'Screen' ;
-polarity ='Positive';
+	aspect = 'Screen' ;
+	polarity ='Positive';
 end;
 if pred == 9,
-aspect = 'Size';
- polarity ='Negative';
+	aspect = 'Size';
+ 	polarity ='Negative';
 end;
 if pred == 10,
-aspect = 'Size';
- polarity ='Positive';
+	aspect = 'Size';
+ 	polarity ='Positive';
 end;
 
 fprintf("Sentence:\n %s \n\n ASPECT: %s \t POLARITY: %s\n", str, aspect, polarity);
